@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./login.scss"
+import "./login.less"
 import $ from "jquery"
 import { message } from 'antd';
 class LoginPage extends Component{

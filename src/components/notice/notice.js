@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { DatePicker } from 'antd'
 import { Input, Table, Icon, Modal, Button, Spin } from 'antd'
 import moment from 'moment'
-import "./notice.scss"
+import "./notice.less"
 import GroupUserTree  from "./../common/GroupUserTree";
 import $ from "jquery";
 const { Column, ColumnGroup } = Table;

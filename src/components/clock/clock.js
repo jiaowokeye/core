@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./clock.scss"
+import "./clock.less"
 import { DatePicker } from 'antd'
 import moment from 'moment'
 import { Button } from 'antd'

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./common.scss"
+import "./common.less"
 import logo from "./../../statics/images/logo.gif"
 import mores from "./../../statics/images/mores.png"
 import GlobalConfig from "./../../config/globla"
