@@ -1,4 +1,4 @@
 #ignore these files 
 *.dll 
 node_modules/* 
-public/* 
+build/* 

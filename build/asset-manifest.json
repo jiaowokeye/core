@@ -1,4 +1,11 @@
 {
-  "main.js": "static/js/main.03ed68a8.js",
-  "main.js.map": "static/js/main.03ed68a8.js.map"
+  "main.css": "static/css/main.42973a0d.css",
+  "main.js": "static/js/main.1744dd76.js",
+  "static\\media\\banner-4.png": "static/media/banner-4.06c0ad1b.png",
+  "static\\media\\banner-5.png": "static/media/banner-5.46b264e7.png",
+  "static\\media\\bg.png": "static/media/bg.e052f310.png",
+  "static\\media\\de.png": "static/media/de.b7dd6b53.png",
+  "static\\media\\step1.png": "static/media/step1.085279b2.png",
+  "static\\media\\step2.png": "static/media/step2.afce9814.png",
+  "vendor.js": "static/js/vendor.0bcbe750.js"
 }

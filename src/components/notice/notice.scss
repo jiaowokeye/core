@@ -1,0 +1,22 @@
+@import "./../common/lib.scss";
+
+
+.sendNotice{
+    input,textarea{
+        width: 100%!important;
+        margin-bottom:15px;
+    }
+    .noticeContent{
+        height:80px;
+    }
+}
+.nav{
+    margin-top:15px;
+    .searchInput{
+        margin-right:15px;
+    }
+    
+    .sendNotice{
+        float: right;
+    }
+}
