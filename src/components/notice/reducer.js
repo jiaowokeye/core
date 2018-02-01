@@ -1,4 +1,4 @@
-import createReducer from '../../tools/createReducer'
+import createReducer from './../../tool/createReducer'
 import * as types from './types'
 
 export const a = createReducer('123', {
