@@ -1,7 +1,7 @@
 
 let Global = {};
 
-// Global.bashUrl = "http://127.16.0.8:8080/core/static/";
+// Global.bashUrl = "http://127.16.0.8:8080/core/view/static/";
 Global.bashUrl = "http://localhost:3000/static/";
 Global.collected = [
     { "id": "Used_Interest_-17", "imgRrl": "permission/left_notice.png", "name": "公告", "link": "/notice" },
@@ -13,3 +13,4 @@ Global.allModuleData = [{ "iconName": "公告", "imgUrl": "permission/notice.png
 
 export default Global;
 
+window.CommonResource = { "IsDebug": true, "GlobalRootPath": "http://111.198.29.228:18080", "GlobalAuthId": -17, "GlobalAuthParentId": 0, "GlobalMenuId": -17, "GlobalLoginUserCompany": "北京位智天下i到位内网测试公司", "GlobalLoginUserCompanyId": "200931", "GlobalLoginUserAddress": "", "GlobalLoginUserName": "翟科", "GlobalLoginUserAccount": "zk", "GlobalLoginUserId": 12659, "GlobalLoginUserType": 1, "GlobalIsFirstLogin": 0, "GlobalLoginUserClientId": 207047, "IsSubmit": false, "LocationTypeName": ["轨迹上传", "位置共享", "上门拜访签入", "上班打卡", "下班打卡", "提交订单", "上门拜访签出", "位信共享", "自定表单提单", "即时定位", "发公告", "任务进度汇报", "任务互动", "下任务", "发朋友圈", "建计划", "计划总结", "计划互动", "建客户", "建联系人", "改客户状态", "改客户等级", "提客户备忘", "分配客户", "设客户所有者", "建拜访计划", "提电话拜访", "提拜访现场", "提拜访总结", "拜访互动", "提申请", "审批", "商品入库", "设新品", "设促销", "建商品", "录入款", "确认到货", "提单目标分解", "配货", "发货", "送货", "定提单目标", "审核订单", "提反馈", "反馈互动", "处理表单", "日报总结", "日报互动", "加文档", "分享文档", "沟通", "公海划客户", "改客户位置", "创建线索", "线索跟进", "线索互动", "创建商机", "商机跟进", "商机互动", "创建合同", "合同跟进", "建回款计划", "录入到款", "合同互动", "上报", "建对手", "改对手", "上报互动", "建项目", "项目跟进", "设项目进度", "项目互动", "加项目文档", "修改项目", "改项目状态", "转移项目", "换送货人", "送货签收", "建客户开发", "改开发阶段", "", "", "", "填客户调查", "建过程控制", "建售后服务", "", "", "", "", "", "", "", "", "", "", "记费用", "创建名片", "约访拜访签入", "约访拜访签出", "提出库单", "", "提退货单", "录入物流", "退货处理", "提开票需求", "录农牧信息", "农牧互动"], "GlobalHeadPhotoPath": "http://111.198.29.228:10080/attach/hr/user_photo/", "GlobalCurrentBookId": 144, "InPicCarousel": false, "Version": "8.9", "OS": 2 }

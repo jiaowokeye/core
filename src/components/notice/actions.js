@@ -1,3 +1,3 @@
 import * as action from './action'
 
-export const HomePageAction = Object.assign({}, action);
+export const NoticeAction = Object.assign({}, action);

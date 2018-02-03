@@ -84,7 +84,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-
+      
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -115,7 +115,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-
+              
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -131,16 +131,12 @@ module.exports = {
           // smaller than specified limit in bytes as data URLs to avoid requests.
           // A missing `test` is equivalent to a match.
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.scss$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
             },
-          },
-          {
-            test: /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader'],
           },
           // Process JS with Babel.
           {
@@ -148,9 +144,7 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              "plugins": [
-                ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": true }] // `style: true` 会加载 less 文件
-              ],
+              
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
@@ -207,7 +201,7 @@ module.exports = {
             // its runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.(css|less)$/],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             loader: require.resolve('file-loader'),
             options: {
               name: 'static/media/[name].[hash:8].[ext]',

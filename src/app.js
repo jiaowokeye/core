@@ -14,10 +14,10 @@ function configureStore(initialState) {
     );
     return createStore(reducer, initialState, enhancer);
 }
-
 const store = configureStore({});
-
+console.log(store.getState());
 const App = ()=>(
+    
     <Provider store={store}>
         <Router>
             <Page />

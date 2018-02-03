@@ -4,8 +4,6 @@ import registerServiceWorker from './registerServiceWorker';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import App from "./app";
-const CommonResource = window.CommonResource;
-console.log(CommonResource);
 //设置日期控件为中文
 moment.locale('zh-cn');
 

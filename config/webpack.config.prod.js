@@ -43,7 +43,7 @@ const cssFilename = 'static/css/[name].[contenthash:8].css';
 // To have this structure working with relative paths, we have to use custom options.
 const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
-  {publicPath: Array(cssFilename.split('/').length).join('../')}
+    { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
 // This is the production configuration.
@@ -54,22 +54,19 @@ module.exports = {
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
-
-  devtool: false,
-
+  devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
   entry: [require.resolve('./polyfills'), paths.appIndexJs],
   output: {
     // The build folder.
     path: paths.appBuild,
-
     // Generated JS file names (with nested folders).
     // There will be one main bundle, and one file per asynchronous chunk.
     // We don't currently advertise code splitting but Webpack supports it.
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
-    publicPath: './',
+    publicPath: publicPath,
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
       path
@@ -93,7 +90,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-
+      
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -124,7 +121,7 @@ module.exports = {
             options: {
               formatter: eslintFormatter,
               eslintPath: require.resolve('eslint'),
-
+              
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -139,16 +136,12 @@ module.exports = {
           // "url" loader works just like "file" loader but it also embeds
           // assets smaller than specified size as data URLs to avoid requests.
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.scss$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
             },
-          },
-          {
-            test: /\.scss$/,
-            loaders: ['style-loader', 'css-loader', 'sass-loader'],
           },
           // Process JS with Babel.
           {
@@ -156,9 +149,7 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              "plugins": [
-                ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }] // `style: true` 会加载 less 文件
-              ],
+              
               compact: true,
             },
           },
@@ -234,7 +225,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.(css|less)$/],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
@@ -253,7 +244,6 @@ module.exports = {
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
@@ -294,7 +284,7 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/2488
         ascii_only: true,
       },
-      // sourceMap: shouldUseSourceMap,
+      sourceMap: shouldUseSourceMap,
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
@@ -315,7 +305,7 @@ module.exports = {
       // about it being stale, and the cache-busting can be skipped.
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: 'service-worker.js',
-      logger (message) {
+      logger(message) {
         if (message.indexOf('Total precache size is') === 0) {
           // This message occurs for every build and is a bit too noisy.
           return;
@@ -336,14 +326,6 @@ module.exports = {
       // Don't precache sourcemaps (they're large) and build asset manifest:
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
-
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        return module.context && module.context.indexOf('node_modules') !== -1;
-      }
-    }), //切割代码
-
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
